@@ -32,6 +32,9 @@ pub struct Order {
     /// The fulfillment status of the order.
     #[serde(rename = "fulfillment_status")]
     pub fulfillment_status: FulfillmentStatus,
+    /// A URL to see the order's status.
+    #[serde(rename = "status_url", skip_serializing_if = "Option::is_none")]
+    pub status_url: Option<String>,
 }
 
 impl Order {
@@ -46,6 +49,7 @@ impl Order {
             payment_url: None,
             listing: None,
             fulfillment_status,
+            status_url: None,
         }
     }
 }

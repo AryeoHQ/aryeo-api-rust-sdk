@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **payment_url** | Option<**String**> | A URL for to pay for the order. | [optional]
 **listing** | Option<[**crate::models::PartialListing**](PartialListing.md)> |  | [optional]
 **fulfillment_status** | **String** | The fulfillment status of the order. | 
+**status_url** | Option<**String**> | A URL to see the order's status. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
