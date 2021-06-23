@@ -20,6 +20,8 @@ pub mod listing_resource;
 pub use self::listing_resource::ListingResource;
 pub mod marketing_material_publish_payload;
 pub use self::marketing_material_publish_payload::MarketingMaterialPublishPayload;
+pub mod marketing_material_template_publish_payload;
+pub use self::marketing_material_template_publish_payload::MarketingMaterialTemplatePublishPayload;
 pub mod order;
 pub use self::order::Order;
 pub mod order_collection;
