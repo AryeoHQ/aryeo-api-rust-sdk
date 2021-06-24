@@ -4,8 +4,8 @@ All URIs are relative to *https://api.aryeo.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**put_marketing_materials_templates_uuid_publish**](MarketingMaterialsApi.md#put_marketing_materials_templates_uuid_publish) | **put** /marketing-materials/templates/{uuid}/publish | Publish a marketing material template.
-[**put_marketing_materials_uuid_publish**](MarketingMaterialsApi.md#put_marketing_materials_uuid_publish) | **put** /marketing-materials/{uuid}/publish | Publish a marketing material.
+[**put_marketing_materials_templates_uuid_publish**](MarketingMaterialsApi.md#put_marketing_materials_templates_uuid_publish) | **PUT** /marketing-materials/templates/{uuid}/publish | Publish a marketing material template.
+[**put_marketing_materials_uuid_publish**](MarketingMaterialsApi.md#put_marketing_materials_uuid_publish) | **PUT** /marketing-materials/{uuid}/publish | Publish a marketing material.
 
 
 

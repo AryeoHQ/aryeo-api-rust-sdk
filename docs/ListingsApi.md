@@ -4,8 +4,8 @@ All URIs are relative to *https://api.aryeo.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_listings**](ListingsApi.md#get_listings) | **get** /listings | Get the listings available to a group.
-[**get_listings_id**](ListingsApi.md#get_listings_id) | **get** /listings/{id} | Get information about a listing.
+[**get_listings**](ListingsApi.md#get_listings) | **GET** /listings | Get the listings available to a group.
+[**get_listings_id**](ListingsApi.md#get_listings_id) | **GET** /listings/{id} | Get information about a listing.
 
 
 

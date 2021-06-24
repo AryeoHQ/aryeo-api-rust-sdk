@@ -4,8 +4,8 @@ All URIs are relative to *https://api.aryeo.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_orders**](OrdersApi.md#get_orders) | **get** /orders | Get orders available to a group.
-[**post_orders**](OrdersApi.md#post_orders) | **post** /orders | Create an order.
+[**get_orders**](OrdersApi.md#get_orders) | **GET** /orders | Get orders available to a group.
+[**post_orders**](OrdersApi.md#post_orders) | **POST** /orders | Create an order.
 
 
 

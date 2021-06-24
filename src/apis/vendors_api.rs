@@ -38,7 +38,7 @@ pub async fn get_vendors(configuration: &configuration::Configuration, ) -> Resu
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/vendors", configuration.base_path);
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -68,7 +68,7 @@ pub async fn get_vendors_search(configuration: &configuration::Configuration, qu
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/vendors/search", configuration.base_path);
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = query {
         local_var_req_builder = local_var_req_builder.query(&[("query", &local_var_str.to_string())]);

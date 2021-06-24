@@ -4,8 +4,8 @@ All URIs are relative to *https://api.aryeo.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_vendors**](VendorsApi.md#get_vendors) | **get** /vendors | Get vendors available to a group.
-[**get_vendors_search**](VendorsApi.md#get_vendors_search) | **get** /vendors/search | Get vendors that can be added to the group's vendor list.
+[**get_vendors**](VendorsApi.md#get_vendors) | **GET** /vendors | Get vendors available to a group.
+[**get_vendors_search**](VendorsApi.md#get_vendors_search) | **GET** /vendors/search | Get vendors that can be added to the group's vendor list.
 
 
 

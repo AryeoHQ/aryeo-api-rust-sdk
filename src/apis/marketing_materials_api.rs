@@ -40,7 +40,7 @@ pub async fn put_marketing_materials_templates_uuid_publish(configuration: &conf
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/marketing-materials/templates/{uuid}/publish", configuration.base_path, uuid=uuid);
-    let mut local_var_req_builder = local_var_client.put(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -71,7 +71,7 @@ pub async fn put_marketing_materials_uuid_publish(configuration: &configuration:
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/marketing-materials/{uuid}/publish", configuration.base_path, uuid=uuid);
-    let mut local_var_req_builder = local_var_client.put(local_var_uri_str.as_str());
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

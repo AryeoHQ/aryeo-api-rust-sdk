@@ -52,14 +52,14 @@ All URIs are relative to *https://api.aryeo.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ListingsApi* | [**get_listings**](docs/ListingsApi.md#get_listings) | **get** /listings | Get the listings available to a group.
-*ListingsApi* | [**get_listings_id**](docs/ListingsApi.md#get_listings_id) | **get** /listings/{id} | Get information about a listing.
-*MarketingMaterialsApi* | [**put_marketing_materials_templates_uuid_publish**](docs/MarketingMaterialsApi.md#put_marketing_materials_templates_uuid_publish) | **put** /marketing-materials/templates/{uuid}/publish | Publish a marketing material template.
-*MarketingMaterialsApi* | [**put_marketing_materials_uuid_publish**](docs/MarketingMaterialsApi.md#put_marketing_materials_uuid_publish) | **put** /marketing-materials/{uuid}/publish | Publish a marketing material.
-*OrdersApi* | [**get_orders**](docs/OrdersApi.md#get_orders) | **get** /orders | Get orders available to a group.
-*OrdersApi* | [**post_orders**](docs/OrdersApi.md#post_orders) | **post** /orders | Create an order.
-*VendorsApi* | [**get_vendors**](docs/VendorsApi.md#get_vendors) | **get** /vendors | Get vendors available to a group.
-*VendorsApi* | [**get_vendors_search**](docs/VendorsApi.md#get_vendors_search) | **get** /vendors/search | Get vendors that can be added to the group's vendor list.
+*ListingsApi* | [**get_listings**](docs/ListingsApi.md#get_listings) | **GET** /listings | Get the listings available to a group.
+*ListingsApi* | [**get_listings_id**](docs/ListingsApi.md#get_listings_id) | **GET** /listings/{id} | Get information about a listing.
+*MarketingMaterialsApi* | [**put_marketing_materials_templates_uuid_publish**](docs/MarketingMaterialsApi.md#put_marketing_materials_templates_uuid_publish) | **PUT** /marketing-materials/templates/{uuid}/publish | Publish a marketing material template.
+*MarketingMaterialsApi* | [**put_marketing_materials_uuid_publish**](docs/MarketingMaterialsApi.md#put_marketing_materials_uuid_publish) | **PUT** /marketing-materials/{uuid}/publish | Publish a marketing material.
+*OrdersApi* | [**get_orders**](docs/OrdersApi.md#get_orders) | **GET** /orders | Get orders available to a group.
+*OrdersApi* | [**post_orders**](docs/OrdersApi.md#post_orders) | **POST** /orders | Create an order.
+*VendorsApi* | [**get_vendors**](docs/VendorsApi.md#get_vendors) | **GET** /vendors | Get vendors available to a group.
+*VendorsApi* | [**get_vendors_search**](docs/VendorsApi.md#get_vendors_search) | **GET** /vendors/search | Get vendors that can be added to the group's vendor list.
 
 
 ## Documentation For Models
