@@ -1,6 +1,6 @@
 [package]
 name = "aryeo"
-version = ""
+version = "1.0.0"
 authors = ["OpenAPI Generator team and contributors"]
 edition = "2018"
 

@@ -84,11 +84,11 @@ pub async fn get_listings(configuration: &configuration::Configuration, query: O
 }
 
 /// Get information about a listing.
-pub async fn get_listings_id(configuration: &configuration::Configuration, uuid: &str) -> Result<crate::models::ListingResource, Error<GetListingsIdError>> {
+pub async fn get_listings_id(configuration: &configuration::Configuration, id: &str) -> Result<crate::models::ListingResource, Error<GetListingsIdError>> {
 
     let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/listings/{uuid}", configuration.base_path, uuid=uuid);
+    let local_var_uri_str = format!("{}/listings/{id}", configuration.base_path, id=id);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = configuration.user_agent {
