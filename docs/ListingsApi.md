@@ -5,7 +5,7 @@ All URIs are relative to *https://api.aryeo.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_listings**](ListingsApi.md#get_listings) | **GET** /listings | Get the listings available to a group.
-[**get_listings_id**](ListingsApi.md#get_listings_id) | **GET** /listings/{id} | Get information about a listing.
+[**get_listings_id**](ListingsApi.md#get_listings_id) | **GET** /listings/{uuid} | Get information about a listing.
 
 
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_listings_id
 
-> crate::models::ListingResource get_listings_id(id)
+> crate::models::ListingResource get_listings_id(uuid)
 Get information about a listing.
 
 Get information about a listing.
@@ -57,7 +57,7 @@ Get information about a listing.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | [**String**](.md) | The UUID of a listing. | [required] |
+**uuid** | [**String**](.md) | The UUID of a listing. | [required] |
 
 ### Return type
 

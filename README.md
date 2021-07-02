@@ -53,9 +53,7 @@ All URIs are relative to *https://api.aryeo.com/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ListingsApi* | [**get_listings**](docs/ListingsApi.md#get_listings) | **GET** /listings | Get the listings available to a group.
-*ListingsApi* | [**get_listings_id**](docs/ListingsApi.md#get_listings_id) | **GET** /listings/{id} | Get information about a listing.
-*MarketingMaterialsApi* | [**put_marketing_materials_templates_uuid_publish**](docs/MarketingMaterialsApi.md#put_marketing_materials_templates_uuid_publish) | **PUT** /marketing-materials/templates/{uuid}/publish | Publish a marketing material template.
-*MarketingMaterialsApi* | [**put_marketing_materials_uuid_publish**](docs/MarketingMaterialsApi.md#put_marketing_materials_uuid_publish) | **PUT** /marketing-materials/{uuid}/publish | Publish a marketing material.
+*ListingsApi* | [**get_listings_id**](docs/ListingsApi.md#get_listings_id) | **GET** /listings/{uuid} | Get information about a listing.
 *OrdersApi* | [**get_orders**](docs/OrdersApi.md#get_orders) | **GET** /orders | Get orders available to a group.
 *OrdersApi* | [**post_orders**](docs/OrdersApi.md#post_orders) | **POST** /orders | Create an order.
 *VendorsApi* | [**get_vendors**](docs/VendorsApi.md#get_vendors) | **GET** /vendors | Get vendors available to a group.
@@ -74,8 +72,6 @@ Class | Method | HTTP request | Description
  - [InteractiveContent](docs/InteractiveContent.md)
  - [Listing](docs/Listing.md)
  - [ListingResource](docs/ListingResource.md)
- - [MarketingMaterialPublishPayload](docs/MarketingMaterialPublishPayload.md)
- - [MarketingMaterialTemplatePublishPayload](docs/MarketingMaterialTemplatePublishPayload.md)
  - [Order](docs/Order.md)
  - [OrderCollection](docs/OrderCollection.md)
  - [OrderForm](docs/OrderForm.md)
