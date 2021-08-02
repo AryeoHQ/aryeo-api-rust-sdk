@@ -10,6 +10,10 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OrderCollection {
+    /// What was the state of the request?
+    #[serde(rename = "status")]
+    pub status: String,
+    /// 
     #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
     pub data: Option<Vec<crate::models::Order>>,
     #[serde(rename = "meta", skip_serializing_if = "Option::is_none")]
@@ -20,8 +24,9 @@ pub struct OrderCollection {
 
 impl OrderCollection {
     /// A collection of orders.
-    pub fn new() -> OrderCollection {
+    pub fn new(status: String) -> OrderCollection {
         OrderCollection {
+            status,
             data: None,
             meta: None,
             links: None,

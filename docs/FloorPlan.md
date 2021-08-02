@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **i32** | ID of the floor plan. | 
-**thumbnail_url** | **String** | A URL for a thumbnail-sized version of the floor plan. | 
-**large_url** | **String** | A URL for a large version of the floor plan. | 
+**id** | **String** | ID of the floor plan. | 
 **original_url** | **String** | A URL for the original, full-resolution version of the floor plan. Useful for downloading. | 
+**large_url** | **String** | A URL for a large version of the floor plan. | 
+**thumbnail_url** | **String** | A URL for a thumbnail-sized version of the floor plan. | 
 **title** | Option<**String**> | The title (or caption) of the floor plan. | [optional]
 **index** | Option<**i32**> | Index order position of the floor plan. | [optional]
 

@@ -11,14 +11,19 @@ Method | HTTP request | Description
 
 ## get_orders
 
-> crate::models::OrderCollection get_orders()
+> crate::models::OrderCollection get_orders(sort, per_page, page)
 Get orders available to a group.
 
 Get orders of a group.
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**sort** | Option<**String**> | Comma separated list of fields used for sorting. Placing a minus symbol in front of a field name sorts in descending order. Defaults to `-created_at`. |  |
+**per_page** | Option<**String**> | The number of items per page. Defaults to 25. |  |
+**page** | Option<**String**> | The requested page. Defaults to 1. |  |
 
 ### Return type
 
@@ -26,7 +31,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Token](../README.md#Token)
 
 ### HTTP request headers
 
@@ -48,7 +53,7 @@ Create an order.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**order_post_payload** | Option<[**OrderPostPayload**](OrderPostPayload.md)> |  |  |
+**order_post_payload** | Option<[**OrderPostPayload**](OrderPostPayload.md)> | OrderPostPayload |  |
 
 ### Return type
 
@@ -56,7 +61,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Token](../README.md#Token)
 
 ### HTTP request headers
 

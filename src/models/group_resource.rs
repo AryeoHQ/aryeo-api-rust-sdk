@@ -4,23 +4,23 @@
  * Contact: jarrod@aryeo.com
  */
 
-/// ListingResource : A listing.
+/// GroupResource : A group.
 
 
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ListingResource {
+pub struct GroupResource {
     /// What was the state of the request?
     #[serde(rename = "status")]
     pub status: String,
     #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
-    pub data: Option<Box<crate::models::Listing>>,
+    pub data: Option<Box<crate::models::Group>>,
 }
 
-impl ListingResource {
-    /// A listing.
-    pub fn new(status: String) -> ListingResource {
-        ListingResource {
+impl GroupResource {
+    /// A group.
+    pub fn new(status: String) -> GroupResource {
+        GroupResource {
             status,
             data: None,
         }

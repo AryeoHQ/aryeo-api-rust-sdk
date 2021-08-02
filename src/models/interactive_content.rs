@@ -43,19 +43,19 @@ impl InteractiveContent {
 /// Is the content branded, unbranded, or both?
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum DisplayType {
-    #[serde(rename = "branded")]
-    Branded,
-    #[serde(rename = "unbranded")]
-    Unbranded,
-    #[serde(rename = "both")]
-    Both,
+    #[serde(rename = "BRANDED")]
+    BRANDED,
+    #[serde(rename = "UNBRANDED")]
+    UNBRANDED,
+    #[serde(rename = "BOTH")]
+    BOTH,
 }
 /// The type of interactive content.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ContentType {
-    #[serde(rename = "matterport")]
-    Matterport,
-    #[serde(rename = "other")]
-    Other,
+    #[serde(rename = "MATTERPORT")]
+    MATTERPORT,
+    #[serde(rename = "OTHER")]
+    OTHER,
 }
 

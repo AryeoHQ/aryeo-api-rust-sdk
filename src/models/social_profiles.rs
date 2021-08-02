@@ -4,7 +4,7 @@
  * Contact: jarrod@aryeo.com
  */
 
-/// SocialProfiles : Details for a real estate agent.
+/// SocialProfiles : External profile URLs for an agent or brokerage group.
 
 
 
@@ -28,7 +28,7 @@ pub struct SocialProfiles {
 }
 
 impl SocialProfiles {
-    /// Details for a real estate agent.
+    /// External profile URLs for an agent or brokerage group.
     pub fn new() -> SocialProfiles {
         SocialProfiles {
             facebook_profile_url: None,

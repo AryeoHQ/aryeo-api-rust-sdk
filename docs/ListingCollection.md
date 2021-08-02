@@ -1,10 +1,11 @@
-# PartialListingCollection
+# ListingCollection
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | Option<[**Vec<crate::models::PartialListing>**](PartialListing.md)> |  | [optional]
+**status** | **String** | What was the state of the request? | 
+**data** | Option<[**Vec<crate::models::Listing>**](Listing.md)> |  | [optional]
 **meta** | Option<[**crate::models::PaginationMeta**](PaginationMeta.md)> |  | [optional]
 **links** | Option<[**crate::models::PaginationLinks**](PaginationLinks.md)> |  | [optional]
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**status** | **String** | What was the state of the request? | 
 **data** | Option<[**Vec<crate::models::Group>**](Group.md)> |  | [optional]
 **meta** | Option<[**crate::models::PaginationMeta**](PaginationMeta.md)> |  | [optional]
 **links** | Option<[**crate::models::PaginationLinks**](PaginationLinks.md)> |  | [optional]

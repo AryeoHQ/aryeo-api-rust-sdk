@@ -12,10 +12,7 @@
 pub struct Image {
     /// ID of the image.
     #[serde(rename = "id")]
-    pub id: i32,
-    /// The UUID of the image.
-    #[serde(rename = "uuid", skip_serializing_if = "Option::is_none")]
-    pub uuid: Option<String>,
+    pub id: String,
     /// A URL for a thumbnail-sized version of the image.
     #[serde(rename = "thumbnail_url")]
     pub thumbnail_url: String,
@@ -38,10 +35,9 @@ pub struct Image {
 
 impl Image {
     /// A visual representation of something.
-    pub fn new(id: i32, thumbnail_url: String, large_url: String, original_url: String, display_in_gallery: bool) -> Image {
+    pub fn new(id: String, thumbnail_url: String, large_url: String, original_url: String, display_in_gallery: bool) -> Image {
         Image {
             id,
-            uuid: None,
             thumbnail_url,
             large_url,
             original_url,

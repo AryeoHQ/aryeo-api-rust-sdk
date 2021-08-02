@@ -13,9 +13,9 @@ pub struct OrderForm {
     /// UUID of the order form.
     #[serde(rename = "id")]
     pub id: String,
-    /// The name of the order form.
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
+    /// The title or name of the order form.
+    #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
     /// A URL of a publicly-accessible webpage for this order form.
     #[serde(rename = "url")]
     pub url: String,
@@ -26,7 +26,7 @@ impl OrderForm {
     pub fn new(id: String, url: String) -> OrderForm {
         OrderForm {
             id,
-            name: None,
+            title: None,
             url,
         }
     }

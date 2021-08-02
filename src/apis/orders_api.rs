@@ -16,7 +16,7 @@ use super::{Error, configuration};
 #[serde(untagged)]
 pub enum GetOrdersError {
     Status404(crate::models::ApiError),
-    Status422(crate::models::ApiError),
+    Status422(crate::models::ApiFail),
     Status500(crate::models::ApiError),
     UnknownValue(serde_json::Value),
 }
@@ -27,20 +27,29 @@ pub enum GetOrdersError {
 pub enum PostOrdersError {
     Status404(crate::models::ApiError),
     Status409(crate::models::ApiError),
-    Status422(crate::models::ApiError),
+    Status422(crate::models::ApiFail),
     Status500(crate::models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
 
 /// Get orders of a group.
-pub async fn get_orders(configuration: &configuration::Configuration, ) -> Result<crate::models::OrderCollection, Error<GetOrdersError>> {
+pub async fn get_orders(configuration: &configuration::Configuration, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>) -> Result<crate::models::OrderCollection, Error<GetOrdersError>> {
 
     let local_var_client = &configuration.client;
 
     let local_var_uri_str = format!("{}/orders", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = per_page {
+        local_var_req_builder = local_var_req_builder.query(&[("per_page", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = page {
+        local_var_req_builder = local_var_req_builder.query(&[("page", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }

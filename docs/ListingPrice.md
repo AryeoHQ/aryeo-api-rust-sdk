@@ -1,12 +1,10 @@
-# GroupAgentProperties
+# ListingPrice
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**brokerage_name** | Option<**String**> | Name of brokerage. | [optional]
-**agent_license_number** | Option<**String**> | Agent's license number. | [optional]
-**agent_avatar** | Option<**String**> | Agent's profile image URL. | [optional]
+**list_price** | Option<**i32**> | The current price of the listing. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
