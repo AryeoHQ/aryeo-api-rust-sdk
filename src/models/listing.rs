@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Listing {
-    /// ID of the listing.
+    /// ID of the listing. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "address")]

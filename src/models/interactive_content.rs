@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct InteractiveContent {
-    /// ID of the content.
+    /// ID of the content. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
     /// Is the content branded, unbranded, or both?

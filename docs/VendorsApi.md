@@ -51,7 +51,7 @@ Get information about a vendor.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**vendor_id** | [**String**](.md) | ID of the group that is associated as a vendor. | [required] |
+**vendor_id** | [**String**](.md) | The ID of the group that is associated as a vendor. UUID Version 4. | [required] |
 **include** | Option<**String**> | Comma separated list of optional data to include in the response. |  |
 
 ### Return type

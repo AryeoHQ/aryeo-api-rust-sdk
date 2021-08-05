@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | ID of the website. | 
+**id** | **String** | ID of the website. UUID Version 4. | 
 **branded_url** | **String** | URL for branded version of website. | 
 **unbranded_url** | **String** | URL for unbranded version of website. | 
 

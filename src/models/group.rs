@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Group {
-    /// ID of the group.
+    /// ID of the group. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
     /// The type of the group. Can be CREATOR, AGENT, or BROKERAGE, and may dictate the attributes of the group returned.

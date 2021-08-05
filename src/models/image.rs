@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Image {
-    /// ID of the image.
+    /// ID of the image. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
     /// A URL for a thumbnail-sized version of the image.

@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FloorPlan {
-    /// ID of the floor plan.
+    /// ID of the floor plan. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
     /// A URL for the original, full-resolution version of the floor plan. Useful for downloading.

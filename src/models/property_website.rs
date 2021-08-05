@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PropertyWebsite {
-    /// ID of the website.
+    /// ID of the website. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
     /// URL for branded version of website.

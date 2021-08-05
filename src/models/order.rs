@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Order {
-    /// ID of the order.
+    /// ID of the order. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
     /// A vanity id used for internal tracking of orders for a given vendor. 

@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct User {
-    /// ID of the user.
+    /// ID of the user. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
     /// Email address of the user.

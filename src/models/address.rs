@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Address {
-    /// ID of the address.
+    /// ID of the address. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
     /// The geographic latitude of some reference point of the location, specified in degrees and decimal parts. Positive numbers must not include the plus symbol.

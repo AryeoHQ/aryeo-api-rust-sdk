@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OrderForm {
-    /// UUID of the order form.
+    /// ID of the order form. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
     /// The title or name of the order form.

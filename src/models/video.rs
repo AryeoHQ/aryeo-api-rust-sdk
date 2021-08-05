@@ -10,7 +10,7 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Video {
-    /// ID of the video.
+    /// ID of the video. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
     /// The title of the video given by the uploading user.

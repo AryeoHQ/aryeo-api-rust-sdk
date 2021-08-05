@@ -67,7 +67,7 @@ Get information about a listing.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**listing_id** | [**String**](.md) | The ID of a listing. | [required] |
+**listing_id** | [**String**](.md) | The ID of a listing. UUID Version 4. | [required] |
 **include** | Option<**String**> | Comma separated list of optional data to include in the response. |  |
 
 ### Return type
