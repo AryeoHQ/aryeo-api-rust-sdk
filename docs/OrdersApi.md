@@ -5,6 +5,7 @@ All URIs are relative to *https://api.aryeo.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_orders**](OrdersApi.md#get_orders) | **GET** /orders | List all orders.
+[**get_products**](OrdersApi.md#get_products) | **GET** /products | Get products available to a group.
 [**post_orders**](OrdersApi.md#post_orders) | **POST** /orders | Create an order.
 
 
@@ -28,6 +29,41 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::OrderCollection**](OrderCollection.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_products
+
+> crate::models::ProductCollection get_products(sort, per_page, page, filter_search, filter_category_ids, filter_type)
+Get products available to a group.
+
+Get products of a group.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**sort** | Option<**String**> | Comma separated list of fields used for sorting. Placing a minus symbol in front of a field name sorts in descending order. Defaults to `title`. |  |
+**per_page** | Option<**String**> | The number of items per page. Defaults to 25. |  |
+**page** | Option<**String**> | The requested page. Defaults to 1. |  |
+**filter_search** | Option<**String**> | Return products that have fields matching this term. |  |
+**filter_category_ids** | Option<**String**> | Return products in the given categories. |  |
+**filter_type** | Option<**String**> | Return products matching the given type. Allowed values are: MAIN, ADDON. |  |
+
+### Return type
+
+[**crate::models::ProductCollection**](ProductCollection.md)
 
 ### Authorization
 

@@ -22,6 +22,16 @@ pub enum GetOrdersError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method `get_products`
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetProductsError {
+    Status404(crate::models::ApiError),
+    Status422(crate::models::ApiFail),
+    Status500(crate::models::ApiError),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method `post_orders`
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -69,6 +79,54 @@ pub async fn get_orders(configuration: &configuration::Configuration, sort: Opti
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetOrdersError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Get products of a group.
+pub async fn get_products(configuration: &configuration::Configuration, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>, filter_search: Option<&str>, filter_category_ids: Option<&str>, filter_type: Option<&str>) -> Result<crate::models::ProductCollection, Error<GetProductsError>> {
+
+    let local_var_client = &configuration.client;
+
+    let local_var_uri_str = format!("{}/products", configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = sort {
+        local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = per_page {
+        local_var_req_builder = local_var_req_builder.query(&[("per_page", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = page {
+        local_var_req_builder = local_var_req_builder.query(&[("page", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter_search {
+        local_var_req_builder = local_var_req_builder.query(&[("filter[search]", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter_category_ids {
+        local_var_req_builder = local_var_req_builder.query(&[("filter[category_ids]", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = filter_type {
+        local_var_req_builder = local_var_req_builder.query(&[("filter[type]", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetProductsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
