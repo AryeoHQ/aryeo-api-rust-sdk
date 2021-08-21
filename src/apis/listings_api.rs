@@ -15,6 +15,7 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetListingsError {
+    Status403(crate::models::ApiError),
     Status404(crate::models::ApiError),
     Status422(crate::models::ApiFail),
     Status500(crate::models::ApiError),
@@ -25,6 +26,7 @@ pub enum GetListingsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetListingsIdError {
+    Status403(crate::models::ApiError),
     Status404(crate::models::ApiError),
     Status422(crate::models::ApiFail),
     Status500(crate::models::ApiError),
@@ -32,7 +34,7 @@ pub enum GetListingsIdError {
 }
 
 
-/// Get the listings available to a group.
+/// Lists all listings available to a group.
 pub async fn get_listings(configuration: &configuration::Configuration, include: Option<&str>, filter_search: Option<&str>, filter_address: Option<&str>, filter_list_agent: Option<&str>, filter_status: Option<&str>, filter_active: Option<bool>, filter_price_gte: Option<f32>, filter_price_lte: Option<f32>, filter_square_feet_gte: Option<f32>, filter_square_feet_lte: Option<f32>, filter_bedrooms_gte: Option<i32>, filter_bedrooms_lte: Option<i32>, filter_bathrooms_gte: Option<f32>, filter_bathrooms_lte: Option<f32>, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>) -> Result<crate::models::ListingCollection, Error<GetListingsError>> {
 
     let local_var_client = &configuration.client;
@@ -113,7 +115,7 @@ pub async fn get_listings(configuration: &configuration::Configuration, include:
     }
 }
 
-/// Get information about a listing.
+/// Retrieves the details of a listing with the given ID.
 pub async fn get_listings_id(configuration: &configuration::Configuration, listing_id: &str, include: Option<&str>) -> Result<crate::models::ListingResource, Error<GetListingsIdError>> {
 
     let local_var_client = &configuration.client;

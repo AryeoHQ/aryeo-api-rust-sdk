@@ -15,6 +15,7 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVendorsError {
+    Status403(crate::models::ApiError),
     Status404(crate::models::ApiError),
     Status422(crate::models::ApiFail),
     Status500(crate::models::ApiError),
@@ -25,6 +26,7 @@ pub enum GetVendorsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVendorsIdError {
+    Status403(crate::models::ApiError),
     Status404(crate::models::ApiError),
     Status422(crate::models::ApiFail),
     Status500(crate::models::ApiError),
@@ -32,7 +34,7 @@ pub enum GetVendorsIdError {
 }
 
 
-/// Get vendors available to a group.
+/// Lists all vendors available to a group.
 pub async fn get_vendors(configuration: &configuration::Configuration, include: Option<&str>) -> Result<crate::models::GroupCollection, Error<GetVendorsError>> {
 
     let local_var_client = &configuration.client;
@@ -65,7 +67,7 @@ pub async fn get_vendors(configuration: &configuration::Configuration, include: 
     }
 }
 
-/// Get information about a vendor.
+/// Retrieves the details of a vendor with the given ID.
 pub async fn get_vendors_id(configuration: &configuration::Configuration, vendor_id: &str, include: Option<&str>) -> Result<crate::models::GroupResource, Error<GetVendorsIdError>> {
 
     let local_var_client = &configuration.client;

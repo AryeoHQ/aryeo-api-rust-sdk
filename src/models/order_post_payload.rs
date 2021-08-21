@@ -16,6 +16,9 @@ pub struct OrderPostPayload {
     /// The payment status of the order. Defaults to \"UNPAID\". 
     #[serde(rename = "payment_status", skip_serializing_if = "Option::is_none")]
     pub payment_status: Option<PaymentStatus>,
+    /// Google Places ID of the address to attach to the order.
+    #[serde(rename = "place_id", skip_serializing_if = "Option::is_none")]
+    pub place_id: Option<String>,
 }
 
 impl OrderPostPayload {
@@ -24,6 +27,7 @@ impl OrderPostPayload {
         OrderPostPayload {
             fulfillment_status: None,
             payment_status: None,
+            place_id: None,
         }
     }
 }

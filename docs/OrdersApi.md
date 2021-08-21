@@ -4,7 +4,7 @@ All URIs are relative to *https://api.aryeo.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_orders**](OrdersApi.md#get_orders) | **GET** /orders | Get orders available to a group.
+[**get_orders**](OrdersApi.md#get_orders) | **GET** /orders | List all orders.
 [**post_orders**](OrdersApi.md#post_orders) | **POST** /orders | Create an order.
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 ## get_orders
 
 > crate::models::OrderCollection get_orders(sort, per_page, page)
-Get orders available to a group.
+List all orders.
 
-Get orders of a group.
+Lists all orders of a group.
 
 ### Parameters
 

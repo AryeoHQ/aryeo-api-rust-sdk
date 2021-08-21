@@ -61,6 +61,7 @@ pub fn urlencode<T: AsRef<str>>(s: T) -> String {
     ::url::form_urlencoded::byte_serialize(s.as_ref().as_bytes()).collect()
 }
 
+pub mod appointments_api;
 pub mod listings_api;
 pub mod orders_api;
 pub mod vendors_api;

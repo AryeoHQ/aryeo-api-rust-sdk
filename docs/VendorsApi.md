@@ -4,17 +4,17 @@ All URIs are relative to *https://api.aryeo.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_vendors**](VendorsApi.md#get_vendors) | **GET** /vendors | Get vendors available to a group.
-[**get_vendors_id**](VendorsApi.md#get_vendors_id) | **GET** /vendors/{vendor_id} | Get vendors available to a group.
+[**get_vendors**](VendorsApi.md#get_vendors) | **GET** /vendors | List all vendors.
+[**get_vendors_id**](VendorsApi.md#get_vendors_id) | **GET** /vendors/{vendor_id} | Retrieve a vendor.
 
 
 
 ## get_vendors
 
 > crate::models::GroupCollection get_vendors(include)
-Get vendors available to a group.
+List all vendors.
 
-Get vendors available to a group.
+Lists all vendors available to a group.
 
 ### Parameters
 
@@ -42,9 +42,9 @@ Name | Type | Description  | Required | Notes
 ## get_vendors_id
 
 > crate::models::GroupResource get_vendors_id(vendor_id, include)
-Get vendors available to a group.
+Retrieve a vendor.
 
-Get information about a vendor.
+Retrieves the details of a vendor with the given ID.
 
 ### Parameters
 

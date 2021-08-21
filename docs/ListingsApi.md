@@ -4,17 +4,17 @@ All URIs are relative to *https://api.aryeo.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_listings**](ListingsApi.md#get_listings) | **GET** /listings | Get the listings available to a group.
-[**get_listings_id**](ListingsApi.md#get_listings_id) | **GET** /listings/{listing_id} | Get information about a listing.
+[**get_listings**](ListingsApi.md#get_listings) | **GET** /listings | List all listings.
+[**get_listings_id**](ListingsApi.md#get_listings_id) | **GET** /listings/{listing_id} | Retrieve a listing.
 
 
 
 ## get_listings
 
 > crate::models::ListingCollection get_listings(include, filter_search, filter_address, filter_list_agent, filter_status, filter_active, filter_price_gte, filter_price_lte, filter_square_feet_gte, filter_square_feet_lte, filter_bedrooms_gte, filter_bedrooms_lte, filter_bathrooms_gte, filter_bathrooms_lte, sort, per_page, page)
-Get the listings available to a group.
+List all listings.
 
-Get the listings available to a group.
+Lists all listings available to a group.
 
 ### Parameters
 
@@ -58,9 +58,9 @@ Name | Type | Description  | Required | Notes
 ## get_listings_id
 
 > crate::models::ListingResource get_listings_id(listing_id, include)
-Get information about a listing.
+Retrieve a listing.
 
-Get information about a listing.
+Retrieves the details of a listing with the given ID.
 
 ### Parameters
 

@@ -15,6 +15,7 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetOrdersError {
+    Status403(crate::models::ApiError),
     Status404(crate::models::ApiError),
     Status422(crate::models::ApiFail),
     Status500(crate::models::ApiError),
@@ -25,6 +26,7 @@ pub enum GetOrdersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostOrdersError {
+    Status403(crate::models::ApiError),
     Status404(crate::models::ApiError),
     Status409(crate::models::ApiError),
     Status422(crate::models::ApiFail),
@@ -33,7 +35,7 @@ pub enum PostOrdersError {
 }
 
 
-/// Get orders of a group.
+/// Lists all orders of a group.
 pub async fn get_orders(configuration: &configuration::Configuration, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>) -> Result<crate::models::OrderCollection, Error<GetOrdersError>> {
 
     let local_var_client = &configuration.client;
