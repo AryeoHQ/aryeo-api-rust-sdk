@@ -15,10 +15,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVendorsError {
-    Status403(crate::models::ApiError),
-    Status404(crate::models::ApiError),
-    Status422(crate::models::ApiFail),
-    Status500(crate::models::ApiError),
+    Status403(crate::models::ApiError403),
+    Status404(crate::models::ApiError404),
+    Status422(crate::models::ApiFail422),
+    Status500(crate::models::ApiError500),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,10 +26,10 @@ pub enum GetVendorsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVendorsIdError {
-    Status403(crate::models::ApiError),
-    Status404(crate::models::ApiError),
-    Status422(crate::models::ApiFail),
-    Status500(crate::models::ApiError),
+    Status403(crate::models::ApiError403),
+    Status404(crate::models::ApiError404),
+    Status422(crate::models::ApiFail422),
+    Status500(crate::models::ApiError500),
     UnknownValue(serde_json::Value),
 }
 

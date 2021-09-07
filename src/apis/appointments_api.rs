@@ -15,10 +15,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAppointmentsError {
-    Status403(crate::models::ApiError),
-    Status404(crate::models::ApiError),
-    Status422(crate::models::ApiFail),
-    Status500(crate::models::ApiError),
+    Status403(crate::models::ApiError403),
+    Status404(crate::models::ApiError404),
+    Status422(crate::models::ApiFail422),
+    Status500(crate::models::ApiError500),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,10 +26,10 @@ pub enum GetAppointmentsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUnconfirmedAppointmentsError {
-    Status403(crate::models::ApiError),
-    Status404(crate::models::ApiError),
-    Status422(crate::models::ApiFail),
-    Status500(crate::models::ApiError),
+    Status403(crate::models::ApiError403),
+    Status404(crate::models::ApiError404),
+    Status422(crate::models::ApiFail422),
+    Status500(crate::models::ApiError500),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,11 +37,11 @@ pub enum GetUnconfirmedAppointmentsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PutAppointmentsAppointmentIdCancelError {
-    Status403(crate::models::ApiError),
-    Status404(crate::models::ApiError),
-    Status409(crate::models::ApiError),
-    Status422(crate::models::ApiFail),
-    Status500(crate::models::ApiError),
+    Status403(crate::models::ApiError403),
+    Status404(crate::models::ApiError404),
+    Status409(crate::models::ApiError409),
+    Status422(crate::models::ApiFail422),
+    Status500(crate::models::ApiError500),
     UnknownValue(serde_json::Value),
 }
 
@@ -49,11 +49,11 @@ pub enum PutAppointmentsAppointmentIdCancelError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PutAppointmentsAppointmentIdRescheduleError {
-    Status403(crate::models::ApiError),
-    Status404(crate::models::ApiError),
-    Status409(crate::models::ApiError),
-    Status422(crate::models::ApiFail),
-    Status500(crate::models::ApiError),
+    Status403(crate::models::ApiError403),
+    Status404(crate::models::ApiError404),
+    Status409(crate::models::ApiError409),
+    Status422(crate::models::ApiFail422),
+    Status500(crate::models::ApiError500),
     UnknownValue(serde_json::Value),
 }
 

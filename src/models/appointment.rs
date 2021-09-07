@@ -36,6 +36,9 @@ pub struct Appointment {
     /// Users attached to the appointment.
     #[serde(rename = "users", skip_serializing_if = "Option::is_none")]
     pub users: Option<Vec<crate::models::User>>,
+    /// Items attached to the appointment.
+    #[serde(rename = "items", skip_serializing_if = "Option::is_none")]
+    pub items: Option<Vec<crate::models::OrderItem>>,
 }
 
 impl Appointment {
@@ -51,6 +54,7 @@ impl Appointment {
             duration: None,
             order: None,
             users: None,
+            items: None,
         }
     }
 }

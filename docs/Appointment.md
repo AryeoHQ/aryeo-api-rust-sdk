@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **duration** | Option<**i32**> | The length of the appointment in minutes. | [optional]
 **order** | Option<[**crate::models::Order**](Order.md)> |  | [optional]
 **users** | Option<[**Vec<crate::models::User>**](User.md)> | Users attached to the appointment. | [optional]
+**items** | Option<[**Vec<crate::models::OrderItem>**](OrderItem.md)> | Items attached to the appointment. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

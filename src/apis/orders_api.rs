@@ -15,10 +15,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetOrdersError {
-    Status403(crate::models::ApiError),
-    Status404(crate::models::ApiError),
-    Status422(crate::models::ApiFail),
-    Status500(crate::models::ApiError),
+    Status403(crate::models::ApiError403),
+    Status404(crate::models::ApiError404),
+    Status422(crate::models::ApiFail422),
+    Status500(crate::models::ApiError500),
     UnknownValue(serde_json::Value),
 }
 
@@ -26,9 +26,9 @@ pub enum GetOrdersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetProductsError {
-    Status404(crate::models::ApiError),
-    Status422(crate::models::ApiFail),
-    Status500(crate::models::ApiError),
+    Status404(crate::models::ApiError404),
+    Status422(crate::models::ApiFail422),
+    Status500(crate::models::ApiError500),
     UnknownValue(serde_json::Value),
 }
 
@@ -36,11 +36,11 @@ pub enum GetProductsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostOrdersError {
-    Status403(crate::models::ApiError),
-    Status404(crate::models::ApiError),
-    Status409(crate::models::ApiError),
-    Status422(crate::models::ApiFail),
-    Status500(crate::models::ApiError),
+    Status403(crate::models::ApiError403),
+    Status404(crate::models::ApiError404),
+    Status409(crate::models::ApiError409),
+    Status422(crate::models::ApiFail422),
+    Status500(crate::models::ApiError500),
     UnknownValue(serde_json::Value),
 }
 
@@ -85,7 +85,7 @@ pub async fn get_orders(configuration: &configuration::Configuration, sort: Opti
 }
 
 /// Get products of a group.
-pub async fn get_products(configuration: &configuration::Configuration, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>, filter_search: Option<&str>, filter_category_ids: Option<&str>, filter_type: Option<&str>) -> Result<crate::models::ProductCollection, Error<GetProductsError>> {
+pub async fn get_products(configuration: &configuration::Configuration, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>, filter_search: Option<&str>, filter_category_ids: Option<crate::models::Array>, filter_type: Option<&str>) -> Result<crate::models::ProductCollection, Error<GetProductsError>> {
 
     let local_var_client = &configuration.client;
 
