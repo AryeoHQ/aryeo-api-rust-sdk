@@ -5,6 +5,7 @@ All URIs are relative to *https://api.aryeo.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_orders**](OrdersApi.md#get_orders) | **GET** /orders | List all orders.
+[**get_orders_id**](OrdersApi.md#get_orders_id) | **GET** /orders/{order_id} | Retrieve an order.
 [**get_products**](OrdersApi.md#get_products) | **GET** /products | Get products available to a group.
 [**post_orders**](OrdersApi.md#post_orders) | **POST** /orders | Create an order.
 
@@ -29,6 +30,37 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::OrderCollection**](OrderCollection.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_orders_id
+
+> crate::models::OrderResource get_orders_id(order_id, include)
+Retrieve an order.
+
+Retrieves the details of an order with the given ID.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**order_id** | [**String**](.md) | The ID of an order. UUID Version 4. | [required] |
+**include** | Option<**String**> | Comma separated list of optional data to include in the response. |  |
+
+### Return type
+
+[**crate::models::OrderResource**](OrderResource.md)
 
 ### Authorization
 
