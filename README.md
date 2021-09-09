@@ -54,6 +54,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AppointmentsApi* | [**get_appointments**](docs/AppointmentsApi.md#get_appointments) | **GET** /appointments | List all appointments.
 *AppointmentsApi* | [**get_unconfirmed_appointments**](docs/AppointmentsApi.md#get_unconfirmed_appointments) | **GET** /unconfirmed-appointments | List all unconfirmed appointments.
+*AppointmentsApi* | [**get_unconfirmed_appointments_id**](docs/AppointmentsApi.md#get_unconfirmed_appointments_id) | **GET** /unconfirmed-appointments/{unconfirmed_appointment_id} | Retrieve an unconfirmed appointment.
 *AppointmentsApi* | [**put_appointments_appointment_id_cancel**](docs/AppointmentsApi.md#put_appointments_appointment_id_cancel) | **PUT** /appointments/{appointment_id}/cancel | Cancel an appointment.
 *AppointmentsApi* | [**put_appointments_appointment_id_reschedule**](docs/AppointmentsApi.md#put_appointments_appointment_id_reschedule) | **PUT** /appointments/{appointment_id}/reschedule | Reschedule an appointment.
 *ListingsApi* | [**get_listings**](docs/ListingsApi.md#get_listings) | **GET** /listings | List all listings.
@@ -107,6 +108,7 @@ Class | Method | HTTP request | Description
  - [SocialProfiles](docs/SocialProfiles.md)
  - [UnconfirmedAppointment](docs/UnconfirmedAppointment.md)
  - [UnconfirmedAppointmentCollection](docs/UnconfirmedAppointmentCollection.md)
+ - [UnconfirmedAppointmentResource](docs/UnconfirmedAppointmentResource.md)
  - [User](docs/User.md)
  - [Video](docs/Video.md)
 

@@ -76,6 +76,8 @@ pub mod unconfirmed_appointment;
 pub use self::unconfirmed_appointment::UnconfirmedAppointment;
 pub mod unconfirmed_appointment_collection;
 pub use self::unconfirmed_appointment_collection::UnconfirmedAppointmentCollection;
+pub mod unconfirmed_appointment_resource;
+pub use self::unconfirmed_appointment_resource::UnconfirmedAppointmentResource;
 pub mod user;
 pub use self::user::User;
 pub mod video;

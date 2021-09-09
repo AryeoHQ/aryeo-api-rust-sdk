@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_appointments**](AppointmentsApi.md#get_appointments) | **GET** /appointments | List all appointments.
 [**get_unconfirmed_appointments**](AppointmentsApi.md#get_unconfirmed_appointments) | **GET** /unconfirmed-appointments | List all unconfirmed appointments.
+[**get_unconfirmed_appointments_id**](AppointmentsApi.md#get_unconfirmed_appointments_id) | **GET** /unconfirmed-appointments/{unconfirmed_appointment_id} | Retrieve an unconfirmed appointment.
 [**put_appointments_appointment_id_cancel**](AppointmentsApi.md#put_appointments_appointment_id_cancel) | **PUT** /appointments/{appointment_id}/cancel | Cancel an appointment.
 [**put_appointments_appointment_id_reschedule**](AppointmentsApi.md#put_appointments_appointment_id_reschedule) | **PUT** /appointments/{appointment_id}/reschedule | Reschedule an appointment.
 
@@ -69,6 +70,37 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::UnconfirmedAppointmentCollection**](UnconfirmedAppointmentCollection.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_unconfirmed_appointments_id
+
+> crate::models::UnconfirmedAppointmentResource get_unconfirmed_appointments_id(unconfirmed_appointment_id, include)
+Retrieve an unconfirmed appointment.
+
+Retrieves the details of an unconfirmed appointment with the given ID.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**unconfirmed_appointment_id** | [**String**](.md) | The ID of an appointment. | [required] |
+**include** | Option<**String**> | Comma separated list of optional data to include in the response. |  |
+
+### Return type
+
+[**crate::models::UnconfirmedAppointmentResource**](UnconfirmedAppointmentResource.md)
 
 ### Authorization
 
