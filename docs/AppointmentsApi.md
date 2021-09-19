@@ -28,7 +28,7 @@ Name | Type | Description  | Required | Notes
 **filter_tense** | Option<**String**> | Return appointments that are upcoming or in the past. |  |
 **filter_start_at_gte** | Option<**String**> | Return appointments where the start_at field is greater than or equal to this value. Effectively, appointments that start after this date. |  |
 **filter_start_at_lte** | Option<**String**> | Return appointments where the start_at field is less than or equal to this value. Effectively, appointments that start before this date. |  |
-**filter_user_ids** | Option<[**crate::models::Array**](.md)> | The IDs of users whose appointments will be retrieved. UUID Version 4. |  |
+**filter_user_ids** | Option<[**Vec<String>**](String.md)> | The IDs of users whose appointments will be retrieved. UUID Version 4. |  |
 **sort** | Option<**String**> | Comma separated list of fields used for sorting. Placing a minus symbol in front of a field name sorts in descending order. Defaults to `-start_at`. |  |
 **per_page** | Option<**String**> | The number of items per page. Defaults to 25. |  |
 **page** | Option<**String**> | The requested page. Defaults to 1. |  |
@@ -62,7 +62,7 @@ List all unconfirmed appointments. These are appointments that have not been sch
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **include** | Option<**String**> | Comma separated list of optional data to include in the response. |  |
-**filter_user_ids** | Option<[**crate::models::Array**](.md)> | The IDs of users whose appointments will be retrieved. UUID Version 4. |  |
+**filter_user_ids** | Option<[**Vec<String>**](String.md)> | The IDs of users whose appointments will be retrieved. UUID Version 4. |  |
 **sort** | Option<**String**> | Comma separated list of fields used for sorting. Placing a minus symbol in front of a field name sorts in descending order. Defaults to `-start_at`. |  |
 **per_page** | Option<**String**> | The number of items per page. Defaults to 25. |  |
 **page** | Option<**String**> | The requested page. Defaults to 1. |  |

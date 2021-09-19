@@ -41,9 +41,15 @@ pub struct Order {
     pub address: Option<Box<crate::models::Address>>,
     #[serde(rename = "customer", skip_serializing_if = "Option::is_none")]
     pub customer: Option<Box<crate::models::Group>>,
+    #[serde(rename = "listing", skip_serializing_if = "Option::is_none")]
+    pub listing: Option<Box<crate::models::Listing>>,
     /// items
     #[serde(rename = "items", skip_serializing_if = "Option::is_none")]
     pub items: Option<Vec<crate::models::OrderItem>>,
+    #[serde(rename = "appointments", skip_serializing_if = "Option::is_none")]
+    pub appointments: Option<Vec<crate::models::Appointment>>,
+    #[serde(rename = "unconfirmed_appointments", skip_serializing_if = "Option::is_none")]
+    pub unconfirmed_appointments: Option<Vec<crate::models::UnconfirmedAppointment>>,
 }
 
 impl Order {
@@ -61,7 +67,10 @@ impl Order {
             status_url,
             address: None,
             customer: None,
+            listing: None,
             items: None,
+            appointments: None,
+            unconfirmed_appointments: None,
         }
     }
 }

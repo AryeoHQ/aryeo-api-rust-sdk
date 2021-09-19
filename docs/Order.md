@@ -15,7 +15,10 @@ Name | Type | Description | Notes
 **status_url** | Option<**String**> | A URL of a publicly-accessible webpage to see the order's status. | 
 **address** | Option<[**crate::models::Address**](Address.md)> |  | [optional]
 **customer** | Option<[**crate::models::Group**](Group.md)> |  | [optional]
+**listing** | Option<[**crate::models::Listing**](Listing.md)> |  | [optional]
 **items** | Option<[**Vec<crate::models::OrderItem>**](OrderItem.md)> | items | [optional]
+**appointments** | Option<[**Vec<crate::models::Appointment>**](Appointment.md)> |  | [optional]
+**unconfirmed_appointments** | Option<[**Vec<crate::models::UnconfirmedAppointment>**](UnconfirmedAppointment.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_orders**](OrdersApi.md#get_orders) | **GET** /orders | List all orders.
 [**get_orders_id**](OrdersApi.md#get_orders_id) | **GET** /orders/{order_id} | Retrieve an order.
-[**get_products**](OrdersApi.md#get_products) | **GET** /products | Get products available to a group.
+[**get_products**](OrdersApi.md#get_products) | **GET** /products | List all products.
 [**post_orders**](OrdersApi.md#post_orders) | **POST** /orders | Create an order.
 
 
@@ -77,9 +77,9 @@ Name | Type | Description  | Required | Notes
 ## get_products
 
 > crate::models::ProductCollection get_products(sort, per_page, page, filter_search, filter_category_ids, filter_type)
-Get products available to a group.
+List all products.
 
-Get products of a group.
+List all products of a group.
 
 ### Parameters
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Required | Notes
 **per_page** | Option<**String**> | The number of items per page. Defaults to 25. |  |
 **page** | Option<**String**> | The requested page. Defaults to 1. |  |
 **filter_search** | Option<**String**> | Return products that have fields matching this term. |  |
-**filter_category_ids** | Option<[**crate::models::Array**](.md)> | Return products in the given categories. |  |
+**filter_category_ids** | Option<[**Vec<String>**](String.md)> | Return products in the given categories. |  |
 **filter_type** | Option<**String**> | Return products matching the given type. Allowed values are: MAIN, ADDON. |  |
 
 ### Return type

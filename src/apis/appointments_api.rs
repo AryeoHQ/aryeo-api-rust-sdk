@@ -70,11 +70,12 @@ pub enum PutAppointmentsAppointmentIdRescheduleError {
 
 
 /// List all appointments. By default, returns a list of appointments that have been scheduled and have not been canceled
-pub async fn get_appointments(configuration: &configuration::Configuration, include: Option<&str>, filter_tense: Option<&str>, filter_start_at_gte: Option<String>, filter_start_at_lte: Option<String>, filter_user_ids: Option<crate::models::Array>, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>) -> Result<crate::models::AppointmentCollection, Error<GetAppointmentsError>> {
+pub async fn get_appointments(configuration: &configuration::Configuration, include: Option<&str>, filter_tense: Option<&str>, filter_start_at_gte: Option<String>, filter_start_at_lte: Option<String>, filter_user_ids: Option<Vec<String>>, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>) -> Result<crate::models::AppointmentCollection, Error<GetAppointmentsError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/appointments", configuration.base_path);
+    let local_var_uri_str = format!("{}/appointments", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = include {
@@ -90,7 +91,7 @@ pub async fn get_appointments(configuration: &configuration::Configuration, incl
         local_var_req_builder = local_var_req_builder.query(&[("filter[start_at_lte]", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter_user_ids {
-        local_var_req_builder = local_var_req_builder.query(&[("filter[user_ids]", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("filter[user_ids]", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
     }
     if let Some(ref local_var_str) = sort {
         local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
@@ -101,10 +102,10 @@ pub async fn get_appointments(configuration: &configuration::Configuration, incl
     if let Some(ref local_var_str) = page {
         local_var_req_builder = local_var_req_builder.query(&[("page", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_token) = configuration.bearer_access_token {
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
 
@@ -124,18 +125,19 @@ pub async fn get_appointments(configuration: &configuration::Configuration, incl
 }
 
 /// List all unconfirmed appointments. These are appointments that have not been scheduled. 
-pub async fn get_unconfirmed_appointments(configuration: &configuration::Configuration, include: Option<&str>, filter_user_ids: Option<crate::models::Array>, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>) -> Result<crate::models::UnconfirmedAppointmentCollection, Error<GetUnconfirmedAppointmentsError>> {
+pub async fn get_unconfirmed_appointments(configuration: &configuration::Configuration, include: Option<&str>, filter_user_ids: Option<Vec<String>>, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>) -> Result<crate::models::UnconfirmedAppointmentCollection, Error<GetUnconfirmedAppointmentsError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/unconfirmed-appointments", configuration.base_path);
+    let local_var_uri_str = format!("{}/unconfirmed-appointments", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = include {
         local_var_req_builder = local_var_req_builder.query(&[("include", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_str) = filter_user_ids {
-        local_var_req_builder = local_var_req_builder.query(&[("filter[user_ids]", &local_var_str.to_string())]);
+        local_var_req_builder = local_var_req_builder.query(&[("filter[user_ids]", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
     }
     if let Some(ref local_var_str) = sort {
         local_var_req_builder = local_var_req_builder.query(&[("sort", &local_var_str.to_string())]);
@@ -146,10 +148,10 @@ pub async fn get_unconfirmed_appointments(configuration: &configuration::Configu
     if let Some(ref local_var_str) = page {
         local_var_req_builder = local_var_req_builder.query(&[("page", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_token) = configuration.bearer_access_token {
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
 
@@ -170,19 +172,20 @@ pub async fn get_unconfirmed_appointments(configuration: &configuration::Configu
 
 /// Retrieves the details of an unconfirmed appointment with the given ID.
 pub async fn get_unconfirmed_appointments_id(configuration: &configuration::Configuration, unconfirmed_appointment_id: &str, include: Option<&str>) -> Result<crate::models::UnconfirmedAppointmentResource, Error<GetUnconfirmedAppointmentsIdError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/unconfirmed-appointments/{unconfirmed_appointment_id}", configuration.base_path, unconfirmed_appointment_id=unconfirmed_appointment_id);
+    let local_var_uri_str = format!("{}/unconfirmed-appointments/{unconfirmed_appointment_id}", local_var_configuration.base_path, unconfirmed_appointment_id=unconfirmed_appointment_id);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = include {
         local_var_req_builder = local_var_req_builder.query(&[("include", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_token) = configuration.bearer_access_token {
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
 
@@ -203,16 +206,17 @@ pub async fn get_unconfirmed_appointments_id(configuration: &configuration::Conf
 
 /// Cancel an appointment. The appointments order's customer can be optionally notified of this change. 
 pub async fn put_appointments_appointment_id_cancel(configuration: &configuration::Configuration, appointment_id: &str, appointment_cancel_put_payload: Option<crate::models::AppointmentCancelPutPayload>) -> Result<crate::models::AppointmentResource, Error<PutAppointmentsAppointmentIdCancelError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/appointments/{appointment_id}/cancel", configuration.base_path, appointment_id=appointment_id);
+    let local_var_uri_str = format!("{}/appointments/{appointment_id}/cancel", local_var_configuration.base_path, appointment_id=appointment_id);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_token) = configuration.bearer_access_token {
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
     local_var_req_builder = local_var_req_builder.json(&appointment_cancel_put_payload);
@@ -234,16 +238,17 @@ pub async fn put_appointments_appointment_id_cancel(configuration: &configuratio
 
 /// Reschedule an appointment. The appointments order's customer can be optionally notified of this change. 
 pub async fn put_appointments_appointment_id_reschedule(configuration: &configuration::Configuration, appointment_id: &str, appointment_reschedule_put_payload: Option<crate::models::AppointmentReschedulePutPayload>) -> Result<crate::models::AppointmentResource, Error<PutAppointmentsAppointmentIdRescheduleError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/appointments/{appointment_id}/reschedule", configuration.base_path, appointment_id=appointment_id);
+    let local_var_uri_str = format!("{}/appointments/{appointment_id}/reschedule", local_var_configuration.base_path, appointment_id=appointment_id);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_token) = configuration.bearer_access_token {
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
     local_var_req_builder = local_var_req_builder.json(&appointment_reschedule_put_payload);
