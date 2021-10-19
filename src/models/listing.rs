@@ -10,6 +10,9 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Listing {
+    /// String representing the object’s type. Objects of the same type share the same schema.
+    #[serde(rename = "object")]
+    pub object: String,
     /// ID of the listing. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
@@ -67,8 +70,9 @@ pub struct Listing {
 
 impl Listing {
     /// A real estate listing.
-    pub fn new(id: String, address: crate::models::Address, downloads_enabled: bool) -> Listing {
+    pub fn new(object: String, id: String, address: crate::models::Address, downloads_enabled: bool) -> Listing {
         Listing {
+            object,
             id,
             address: Box::new(address),
             mls_number: None,

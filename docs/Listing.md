@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**object** | **String** | String representing the object’s type. Objects of the same type share the same schema. | 
 **id** | **String** | ID of the listing. UUID Version 4. | 
 **address** | [**crate::models::Address**](Address.md) |  | 
 **mls_number** | Option<**String**> | The identifier for a listing on its local MLS.  | [optional]

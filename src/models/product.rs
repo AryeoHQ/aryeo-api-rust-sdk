@@ -19,6 +19,9 @@ pub struct Product {
     /// The description of the product.
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
+    /// The active status of a product.
+    #[serde(rename = "active", skip_serializing_if = "Option::is_none")]
+    pub active: Option<bool>,
     /// The type of product.
     #[serde(rename = "type")]
     pub _type: Type,
@@ -35,6 +38,7 @@ impl Product {
             id,
             title,
             description: None,
+            active: None,
             _type,
             variants: None,
             categories: None,

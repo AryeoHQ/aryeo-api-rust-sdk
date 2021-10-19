@@ -13,12 +13,18 @@ pub struct OrderPostPayload {
     /// The fulfillment status of the order. Defaults to \"UNFULFILLED\".
     #[serde(rename = "fulfillment_status", skip_serializing_if = "Option::is_none")]
     pub fulfillment_status: Option<FulfillmentStatus>,
+    /// Internal notes that will be attached to the order. Viewable only by the team.
+    #[serde(rename = "internal_notes", skip_serializing_if = "Option::is_none")]
+    pub internal_notes: Option<String>,
     /// The payment status of the order. Defaults to \"UNPAID\". 
     #[serde(rename = "payment_status", skip_serializing_if = "Option::is_none")]
     pub payment_status: Option<PaymentStatus>,
-    /// Google Places ID of the address to attach to the order.
-    #[serde(rename = "place_id", skip_serializing_if = "Option::is_none")]
-    pub place_id: Option<String>,
+    /// ID of the address to associate with the order. UUID Version 4.
+    #[serde(rename = "address_id", skip_serializing_if = "Option::is_none")]
+    pub address_id: Option<String>,
+    /// ID of the customer to associate with the order. UUID Version 4.
+    #[serde(rename = "customer_id", skip_serializing_if = "Option::is_none")]
+    pub customer_id: Option<String>,
 }
 
 impl OrderPostPayload {
@@ -26,8 +32,10 @@ impl OrderPostPayload {
     pub fn new() -> OrderPostPayload {
         OrderPostPayload {
             fulfillment_status: None,
+            internal_notes: None,
             payment_status: None,
-            place_id: None,
+            address_id: None,
+            customer_id: None,
         }
     }
 }

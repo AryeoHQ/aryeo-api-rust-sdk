@@ -10,6 +10,9 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Group {
+    /// String representing the object’s type. Objects of the same type share the same schema.
+    #[serde(rename = "object", skip_serializing_if = "Option::is_none")]
+    pub object: Option<String>,
     /// ID of the group. UUID Version 4.
     #[serde(rename = "id")]
     pub id: String,
@@ -61,6 +64,7 @@ impl Group {
     /// A collection of users that can interact with the Aryeo platform. Permissions and properties are determined based on the group's type which can be creator, agent, or brokerage.
     pub fn new(id: String, _type: Type, name: String, is_brokerage_or_brokerage_agent: bool) -> Group {
         Group {
+            object: None,
             id,
             _type,
             name,

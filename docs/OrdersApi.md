@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_products
 
-> crate::models::ProductCollection get_products(sort, per_page, page, filter_search, filter_category_ids, filter_type)
+> crate::models::ProductCollection get_products(sort, per_page, page, filter_search, filter_include_inactive, filter_category_ids, filter_type)
 List all products.
 
 List all products of a group.
@@ -90,6 +90,7 @@ Name | Type | Description  | Required | Notes
 **per_page** | Option<**String**> | The number of items per page. Defaults to 25. |  |
 **page** | Option<**String**> | The requested page. Defaults to 1. |  |
 **filter_search** | Option<**String**> | Return products that have fields matching this term. |  |
+**filter_include_inactive** | Option<**bool**> | Include inactive products (in addition to active products) when returning products. |  |
 **filter_category_ids** | Option<[**Vec<String>**](String.md)> | Return products in the given categories. |  |
 **filter_type** | Option<**String**> | Return products matching the given type. Allowed values are: MAIN, ADDON. |  |
 

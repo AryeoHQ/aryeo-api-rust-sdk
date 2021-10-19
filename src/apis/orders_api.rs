@@ -58,11 +58,10 @@ pub enum PostOrdersError {
 
 /// Lists all orders of a group.
 pub async fn get_orders(configuration: &configuration::Configuration, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>) -> Result<crate::models::OrderCollection, Error<GetOrdersError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/orders", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/orders", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = sort {
@@ -74,10 +73,10 @@ pub async fn get_orders(configuration: &configuration::Configuration, sort: Opti
     if let Some(ref local_var_str) = page {
         local_var_req_builder = local_var_req_builder.query(&[("page", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+    if let Some(ref local_var_token) = configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
 
@@ -98,20 +97,19 @@ pub async fn get_orders(configuration: &configuration::Configuration, sort: Opti
 
 /// Retrieves the details of an order with the given ID.
 pub async fn get_orders_id(configuration: &configuration::Configuration, order_id: &str, include: Option<&str>) -> Result<crate::models::OrderResource, Error<GetOrdersIdError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/orders/{order_id}", local_var_configuration.base_path, order_id=order_id);
+    let local_var_uri_str = format!("{}/orders/{order_id}", configuration.base_path, order_id=order_id);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = include {
         local_var_req_builder = local_var_req_builder.query(&[("include", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+    if let Some(ref local_var_token) = configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
 
@@ -131,12 +129,11 @@ pub async fn get_orders_id(configuration: &configuration::Configuration, order_i
 }
 
 /// List all products of a group.
-pub async fn get_products(configuration: &configuration::Configuration, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>, filter_search: Option<&str>, filter_category_ids: Option<Vec<String>>, filter_type: Option<&str>) -> Result<crate::models::ProductCollection, Error<GetProductsError>> {
-    let local_var_configuration = configuration;
+pub async fn get_products(configuration: &configuration::Configuration, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>, filter_search: Option<&str>, filter_include_inactive: Option<bool>, filter_category_ids: Option<Vec<String>>, filter_type: Option<&str>) -> Result<crate::models::ProductCollection, Error<GetProductsError>> {
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/products", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/products", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = sort {
@@ -151,16 +148,19 @@ pub async fn get_products(configuration: &configuration::Configuration, sort: Op
     if let Some(ref local_var_str) = filter_search {
         local_var_req_builder = local_var_req_builder.query(&[("filter[search]", &local_var_str.to_string())]);
     }
+    if let Some(ref local_var_str) = filter_include_inactive {
+        local_var_req_builder = local_var_req_builder.query(&[("filter[include_inactive]", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_str) = filter_category_ids {
         local_var_req_builder = local_var_req_builder.query(&[("filter[category_ids]", &local_var_str.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]);
     }
     if let Some(ref local_var_str) = filter_type {
         local_var_req_builder = local_var_req_builder.query(&[("filter[type]", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+    if let Some(ref local_var_token) = configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
 
@@ -181,17 +181,16 @@ pub async fn get_products(configuration: &configuration::Configuration, sort: Op
 
 /// Create an order.
 pub async fn post_orders(configuration: &configuration::Configuration, order_post_payload: Option<crate::models::OrderPostPayload>) -> Result<crate::models::OrderResource, Error<PostOrdersError>> {
-    let local_var_configuration = configuration;
 
-    let local_var_client = &local_var_configuration.client;
+    let local_var_client = &configuration.client;
 
-    let local_var_uri_str = format!("{}/orders", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/orders", configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+    if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+    if let Some(ref local_var_token) = configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
     local_var_req_builder = local_var_req_builder.json(&order_post_payload);
