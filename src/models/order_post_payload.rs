@@ -25,6 +25,9 @@ pub struct OrderPostPayload {
     /// ID of the customer to associate with the order. UUID Version 4.
     #[serde(rename = "customer_id", skip_serializing_if = "Option::is_none")]
     pub customer_id: Option<String>,
+    /// Indicates if the customer and creator notifications should be sent when creating the order. Requires an address and customer to be set in order for the notifications to be sent.
+    #[serde(rename = "notify", skip_serializing_if = "Option::is_none")]
+    pub notify: Option<bool>,
 }
 
 impl OrderPostPayload {
@@ -36,6 +39,7 @@ impl OrderPostPayload {
             payment_status: None,
             address_id: None,
             customer_id: None,
+            notify: None,
         }
     }
 }
