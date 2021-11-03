@@ -19,6 +19,9 @@ pub struct ProductVariant {
     /// A positive integer in the smallest currency unit (that is, 100 cents for $1.00) representing the price of the product variant.
     #[serde(rename = "price")]
     pub price: i32,
+    /// The duration of the product item, in minutes.
+    #[serde(rename = "duration", skip_serializing_if = "Option::is_none")]
+    pub duration: Option<i32>,
 }
 
 impl ProductVariant {
@@ -28,6 +31,7 @@ impl ProductVariant {
             id,
             title,
             price,
+            duration: None,
         }
     }
 }
