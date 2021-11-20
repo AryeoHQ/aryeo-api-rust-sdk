@@ -133,7 +133,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::UnconfirmedAppointmentCollection get_unconfirmed_appointments(include, filter_user_ids, sort, per_page, page)
 List all unconfirmed appointments.
 
-List all unconfirmed appointments. These are appointments that have not been scheduled. 
+List all unconfirmed appointments. These are appointments that have not been scheduled.
 
 ### Parameters
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::AppointmentResource put_appointments_appointment_id_cancel(appointment_id, appointment_cancel_put_payload)
 Cancel an appointment.
 
-Cancel an appointment. The appointments order's customer can be optionally notified of this change. 
+Cancel an appointment. The appointments order's customer can be optionally notified of this change.
 
 ### Parameters
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Required | Notes
 > crate::models::AppointmentResource put_appointments_appointment_id_reschedule(appointment_id, appointment_reschedule_put_payload)
 Reschedule an appointment.
 
-Reschedule an appointment. The appointments order's customer can be optionally notified of this change. 
+Reschedule an appointment. The appointments order's customer can be optionally notified of this change.
 
 ### Parameters
 

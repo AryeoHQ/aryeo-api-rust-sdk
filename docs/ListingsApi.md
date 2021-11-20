@@ -26,7 +26,7 @@ Name | Type | Description  | Required | Notes
 **filter_address** | Option<**String**> | Return listings that have an address matching this term. |  |
 **filter_list_agent** | Option<**String**> | Return listings that have a listing agent or co-listing agent matching this term. |  |
 **filter_status** | Option<**String**> | Return listings that have a certain status. |  |
-**filter_active** | Option<**bool**> | Set as true to return listings that have an active status (e.g. active statuses include `COMING_SOON`, `FOR_SALE`, `FOR_LEASE`, `PENDING_SALE`, `PENDING_LEASE`, `SOLD`, `LEASED`).  |  |
+**filter_active** | Option<**bool**> | Set as true to return listings that have an active status (e.g. active statuses include `COMING_SOON`, `FOR_SALE`, `FOR_LEASE`, `PENDING_SALE`, `PENDING_LEASE`, `SOLD`, `LEASED`). |  |
 **filter_price_gte** | Option<**f32**> | Return listings where the price field is greater than or equal to this value. |  |
 **filter_price_lte** | Option<**f32**> | Return listings where the price field is less than or equal to this value. |  |
 **filter_square_feet_gte** | Option<**f32**> | Return listings where the square feet field is greater than or equal to this value. |  |

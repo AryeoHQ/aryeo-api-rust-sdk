@@ -262,7 +262,7 @@ pub async fn get_available_timeslots(configuration: &configuration::Configuratio
     }
 }
 
-/// List all unconfirmed appointments. These are appointments that have not been scheduled. 
+/// List all unconfirmed appointments. These are appointments that have not been scheduled.
 pub async fn get_unconfirmed_appointments(configuration: &configuration::Configuration, include: Option<&str>, filter_user_ids: Option<Vec<String>>, sort: Option<&str>, per_page: Option<&str>, page: Option<&str>) -> Result<crate::models::UnconfirmedAppointmentCollection, Error<GetUnconfirmedAppointmentsError>> {
 
     let local_var_client = &configuration.client;
@@ -340,7 +340,7 @@ pub async fn get_unconfirmed_appointments_id(configuration: &configuration::Conf
     }
 }
 
-/// Cancel an appointment. The appointments order's customer can be optionally notified of this change. 
+/// Cancel an appointment. The appointments order's customer can be optionally notified of this change.
 pub async fn put_appointments_appointment_id_cancel(configuration: &configuration::Configuration, appointment_id: &str, appointment_cancel_put_payload: Option<crate::models::AppointmentCancelPutPayload>) -> Result<crate::models::AppointmentResource, Error<PutAppointmentsAppointmentIdCancelError>> {
 
     let local_var_client = &configuration.client;
@@ -371,7 +371,7 @@ pub async fn put_appointments_appointment_id_cancel(configuration: &configuratio
     }
 }
 
-/// Reschedule an appointment. The appointments order's customer can be optionally notified of this change. 
+/// Reschedule an appointment. The appointments order's customer can be optionally notified of this change.
 pub async fn put_appointments_appointment_id_reschedule(configuration: &configuration::Configuration, appointment_id: &str, appointment_reschedule_put_payload: Option<crate::models::AppointmentReschedulePutPayload>) -> Result<crate::models::AppointmentResource, Error<PutAppointmentsAppointmentIdRescheduleError>> {
 
     let local_var_client = &configuration.client;
