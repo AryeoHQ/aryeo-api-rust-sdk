@@ -37,6 +37,12 @@ pub struct Order {
     /// A URL of a publicly-accessible webpage to see the order's status.
     #[serde(rename = "status_url")]
     pub status_url: Option<String>,
+    /// Indicates if the current user is allowed to download content from the attached listing.
+    #[serde(rename = "downloads_allowed", skip_serializing_if = "Option::is_none")]
+    pub downloads_allowed: Option<bool>,
+    /// Indicates if the current user is allowed to make a payment for the order.
+    #[serde(rename = "payments_allowed", skip_serializing_if = "Option::is_none")]
+    pub payments_allowed: Option<bool>,
     #[serde(rename = "address", skip_serializing_if = "Option::is_none")]
     pub address: Option<Box<crate::models::Address>>,
     #[serde(rename = "customer", skip_serializing_if = "Option::is_none")]
@@ -65,6 +71,8 @@ impl Order {
             total_amount: None,
             payment_url: None,
             status_url,
+            downloads_allowed: None,
+            payments_allowed: None,
             address: None,
             customer: None,
             listing: None,

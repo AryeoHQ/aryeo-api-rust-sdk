@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **total_amount** | Option<**i32**> | A positive integer in the smallest currency unit (that is, 100 cents for $1.00) representing the total order amount that was or will be charged. This accounts for order items and taxes.  | [optional]
 **payment_url** | Option<**String**> | A URL of a publicly-accessible webpage to pay for the order. | [optional]
 **status_url** | Option<**String**> | A URL of a publicly-accessible webpage to see the order's status. | 
+**downloads_allowed** | Option<**bool**> | Indicates if the current user is allowed to download content from the attached listing. | [optional]
+**payments_allowed** | Option<**bool**> | Indicates if the current user is allowed to make a payment for the order. | [optional]
 **address** | Option<[**crate::models::Address**](Address.md)> |  | [optional]
 **customer** | Option<[**crate::models::Group**](Group.md)> |  | [optional]
 **listing** | Option<[**crate::models::Listing**](Listing.md)> |  | [optional]

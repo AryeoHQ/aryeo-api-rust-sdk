@@ -25,6 +25,12 @@ pub struct OrderPostPayload {
     /// Indicates if the customer and creator notifications should be sent when creating the order. Requires an address and customer to be set in order for the notifications to be sent.
     #[serde(rename = "notify", skip_serializing_if = "Option::is_none")]
     pub notify: Option<bool>,
+    /// Indicates if the downloads for the attached listing should be locked while there is an outstanding balance on the order.
+    #[serde(rename = "lock_download_for_payment", skip_serializing_if = "Option::is_none")]
+    pub lock_download_for_payment: Option<bool>,
+    /// Indicates if the order will allow payments from the customer before the order is marked as fulfilled.
+    #[serde(rename = "allow_payments_before_fulfillment", skip_serializing_if = "Option::is_none")]
+    pub allow_payments_before_fulfillment: Option<bool>,
 }
 
 impl OrderPostPayload {
@@ -36,6 +42,8 @@ impl OrderPostPayload {
             address_id: None,
             customer_id: None,
             notify: None,
+            lock_download_for_payment: None,
+            allow_payments_before_fulfillment: None,
         }
     }
 }
